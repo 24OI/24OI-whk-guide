@@ -1,0 +1,695 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+    
+    
+      
+        <title>整体策略 - 24OI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e8d9bf0c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="24OI" class="md-header__button md-logo" aria-label="24OI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            24OI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              整体策略
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="24OI" class="md-nav__button md-logo" aria-label="24OI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    24OI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Welcome to MkDocs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0/" class="md-nav__link">
+        我写这篇文章的动机
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          整体策略
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        整体策略
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    自学还是辅导
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    首先选择困难
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_/" class="md-nav__link">
+        起步之后
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        沉没成本
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_/" class="md-nav__link">
+        绝处逢生
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2__/" class="md-nav__link">
+        和解？
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        决战之前
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_/" class="md-nav__link">
+        能力自信
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3__/" class="md-nav__link">
+        考试的意义
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        结束了？
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_/" class="md-nav__link">
+        浅谈一点志愿选择
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bio/" class="md-nav__link">
+        生物
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../che/" class="md-nav__link">
+        化学
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chn/" class="md-nav__link">
+        语文
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../end/" class="md-nav__link">
+        结尾的一点碎碎念
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eng/" class="md-nav__link">
+        英语
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        在开始之前
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        Log
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mainpage/" class="md-nav__link">
+        Mainpage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        数学
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phi/" class="md-nav__link">
+        物理
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    自学还是辅导
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    首先选择困难
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">整体策略</h1>
+<h2 id="_2">自学还是辅导</h2>
+<p>老实说，我并没有接触过辅导这种选择，因此我首先得说，以下我提出的所有建议都不包括如何参加辅导。</p>
+<p>首先我们不妨分析一下这两种方式的区别。学习的过程总体上可以分成两步：老师把自己具备的知识传达给学生，而后学生用自己的方法理解并且运用知识。不难看出，自学和老师辅导的区别只在于前者，自学的老师是教材、参考书，而一个辅导老师是在传达知识的同时传达他自己的理解。</p>
+<p>因此在这个层面上老师的优点在于他们能使学生一次性获得更易于理解的知识，同时一个负责任的老师往往能从问题的本质上出发，这也一定程度上避免了学生去理解一些其实并不知道怎么来的知识，把实质上是强记知识点误以为是理解了某种高深的东西，最终缺乏核心能力的问题。这是个非常常见而且并不容易解决的问题，有些同学能解出一些非常复杂的模型，但是题目稍微变化一下大脑就一片空白，这其实就是因为他们只记住了部分知识点和部分应用，但是缺乏理解和实际能力，后续我们也会再讨论这个问题该如何解决。</p>
+<p>而老师的缺点同样也很明显，首先这个老师需要是一个负责任的、有水平的老师，否则最终也很容易变成自己学了一大堆更不切实际的例题；其次除开这个学习的核心机制，时间安排不够灵活和费用都是问题，尽管我们学校的老师会允许学生请假出去补课，但是这是个有利有弊的选项，你可以避开各种短期上是无理取闹的语文英语小考，但是学校总有一些有用的东西是你会错过的。</p>
+<p>自学的优缺点和老师是互补的。很多人觉得自学是一件困难的事情，我想这种困难主要不太在于找一本适合自己的参考书（虽然这很关键），更多在于缺乏一个合适的进度规划和实践能力，有的人会赶得过急而有的人执行力差，有的人缺乏思考而有的人忽略练度的重要性，一个老师确实可以帮你解决这些问题，但是一旦你具备这种强大的能力，我相信它的效果绝对不输于老师，甚至更好。</p>
+<p>因此不管你的规划能力、时间安排和掌握的资源如何，同样适用的点在于，你需要在这个过程中融入自己的大量思考、评判和主动选择，也就是需要非常强的主观能动性。科学地评价自己的能力、作出选择而避免主观上没有道理的随意尝试是非常重要的，不加思考地完全依赖于老师和完全排斥老师都不可取。况且不管怎么选择，吸收知识并加以思考的过程总得由你自己完成，而这一步的成果才是最终真正区分不同层次能力的关键。关于主观能动性的问题，我后续会提及一点，但这个任务如何完成当然取决于你如何说服自己。加油吧。</p>
+<h2 id="_3">首先选择困难</h2>
+<p>在具体探讨每一科怎么学之前，有必要谈一点时间分配的问题。</p>
+<p>从短期上来说，国大班的同学可能面临因为期末成绩太差被踢出去的问题，但是据实际情况来看，如果你是拿到省一而后退竞的，即使一开始反反复复掉到两百名也没有太大影响，即便你像我一样是个省三，考个一百多名也是有存活的空间，况且我们的教练和班主任或许还能起一些作用。</p>
+<p>所以对于所有人都是一样，我们并不需要追求在短短的时间内想着急急忙忙把课学完，实在地提升了自己的能力才是最重要的。</p>
+<p>对于那些刚退竞之后听起来完全不知所云的课程，如果是化学（尤其是选一）、生物和物理选一选三这种各章节之间没有必然联系的，完全可以等换下一章从头开始的时候再继续听课，不要逼着自己在云里雾里的状态中到处乱抓。语文英语这样看起来哪一天的课都是毫无联系的东西，它是培养长期能力的（尤其英语几乎天天都是习题课），同时某种程度上也是难得的休息时间，所以我不建议翘掉这种课的作业，可以选择地去听（我就不具备一边听课一边写作业的实力）。但是语文英语小考这种东西则可以酌情考虑，因为背东西每个人的节奏和方法都不一样。拿我个人举例，我是个强记东西极其困难的人，我第一次回归之后是网课，那段时间我所有的语文默写小考全都在底下抄答案，由于我们隔一天一考，所以抄着抄着再稍微背个一两遍就背下来了；第二次回归我直接想办法把背课文串到周末去，平时小考简单的时候就考一下应付班主任，难了就找语文课代表协商一下直接开摆。英语小考我是能背一点算一点，一方面我基础比较好，另一方面来回来去的考总有一天能背下来。</p>
+<p>所谓“选择困难”就是这个意思，高三要开始用总复习巩固知识然后进行决战，所以冲进度打基础必然要在高二解决掉。而高二的时间有限，哪怕对于没有疫情的各位时间上还宽松不少，我们也应该先攻一些我们确实能学明白的知识、能解决清楚的问题，而不是死板地从半截跟着进度，或者灵活地逃避困难选择各种各样的开摆。我更推荐在并行一部分学校进度的同时，自己赶进度的时候一次专攻一科，集中解决。</p>
+<p>这个顺序通常是先数学，再物理，最后化生。这一选择不仅仅是因为你的数学老师脾气很差（我的数学老师是张宁老师，懂得都懂），而且是因为24中在期末复习阶段的数学往往含金量足够高，这一部分是不容错过的，而且无论是解析几何还是导数都是书上的基础知识很容易学完而练习题拔高很离谱的，因此数学要跟上进度难度不大而重要性很大。物理的主要问题在于难度大且内容杂，需要一段比较长时间的学习，而高二物理的期末复习简直可以用草率来形容，至少我们这一届的期末复习就是做了两套市联考而已，因此是纯粹修行在个人。这样一个可能需要量力而行的科目偏偏题目分值非常大，所以也应该放在前面，尽可能把进度追完，而且在学校有问题更容易解决。化生没什么可说，知识点多且杂，但是凭底力能弥补不少知识差距，所以放最后。</p>
+<p>当然这是出于我个人选择，老师的上课安排以及个人的时间同样也是关键因素，所以还得综合考虑。我两次回归都是只有一个半月，都是勉强赶完进度。不管如何，至少假期还有一段时间能够把缺失的进度弥补回来，复活赛总得打赢吧。</p>
+<p>除此之外，“选择困难”也是在选择所学知识的难度。我认识一些回归后上辅导课做着非常阴间的题的同学（这种老师也是我所谓不负责任那一类的）和一些做物理必刷题这种阴间练习册的同学，最后的效果往往不好，因为这是一种过于好高骛远的选择。再比如说，高二下学期可能会有假期的夏令营或者一些学校推荐的培优课程，我高二下那个假期花了一两周上培优课学的东西是几乎没记住完全没用上。在这个阶段的同学正常追进度能力一定不强，没有基础，去做难题的结果只能是记住更多奇奇怪怪的例题。一方面来说，这里是LN，不是HN，不是SD，做太难的题只会给人没有实际意义的成就感，忽略自己漏洞百出的基础知识；另一方面来说，很多难题是为难而难，故意恶心人，比如有些非常出生的偏对称硬求三阶导或者立几用基底硬推结论（参见2023大连市二模数学第20题），这些题并没有多少深度的思维含量，价值很低，而不懂得判断题目含金量的新手很容易陷入对难度的盲目崇拜。因此这阶段一定要追求对基础概念、基本解题技巧有清晰的了解，尤其是要知道为什么应用这种技术、为什么有这种结论，这才有助于我们对这些知识印象更深、对这些技巧应用更熟练。同学们经常会对难度盲目崇拜，所以要保持自己的本心不受影响。学习到最后绝大多数情况下是一个贵精不贵多的过程，花一整晚背了一堆不知道怎么推导的解析几何二级结论，到最后未必比那些只了解几个定义，做题全用韦达定理的学生会做的题更多。</p>
+<p>总而言之，我是个不喜欢随意行动的人，因此在我们投身知识的海洋之前，我建议至少先明确自己总体上要做什么、大概怎么做，有一个初步的计划。这种计划当然会随着实际情况慢慢改变，但是也要记得先想好计划再去行动，毕竟谁也不想到最后不仅浪费了自己的精力，还打垮了自己的自信或者变得盲目自信。 </p>
+<p>至于每一科更为具体的东西，就将是我们下面要谈的内容。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../0/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 我写这篇文章的动机" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              我写这篇文章的动机
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../1_/" class="md-footer__link md-footer__link--next" aria-label="Next: 起步之后" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              起步之后
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8aa65030.min.js"></script>
+      
+    
+  </body>
+</html>
