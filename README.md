@@ -1,4 +1,4 @@
-# 文化课攻略 For 24OI
+# 文化课攻略收集站 For 24OI
 
 A project launched by hanoist.
 
