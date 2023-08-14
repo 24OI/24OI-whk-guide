@@ -2,7 +2,7 @@ site_name: 文化课攻略收集 for 24OI
 nav:
 - 首页: 'mainpage.md'
 - 更新日志: 'log.md'
-- 欢迎来到不够完美的高中生活: 
+- 欢迎来到不够完美的高中生活 by Hanoist: 
     - 在开始之前: 'intro.md'
     - 我写这篇文章的动机: '0.md'
     - 追赶课程进度: 
