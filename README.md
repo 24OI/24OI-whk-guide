@@ -11,3 +11,11 @@ A project launched by hanoist.
 仓库可以 fork，不过要想使得编辑后的站点被合并到原站点当中 (pull request)，需要经过所有者（也就是我）的同意。如果一段时间没有回音，可以直接向我发微信，微信号是Eliyou2005，如果修改通过我也会第一时间告知。提前感谢大家的支持！
 
 ----By Hanoist 2023.8.13
+
+大家好啊咱是不太会用 GitHub 的望月 Asta。
+
+添加了 workflow 之后，不需要本地 build 或者 gh-deploy，只需修改文件 & mkdocs.yml 然后 push 即可！
+
+实在是非常方便呢（
+
+---- Asta 2023.8.14
