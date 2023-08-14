@@ -1,4 +1,8 @@
 site_name: 文化课攻略收集 for 24OI
+
+repo_name: 'Hanoist/24OI'
+repo_url: 'https://github.com/Hanoist/24OI'
+
 nav:
 - 首页: 'mainpage.md'
 - 更新日志: 'log.md'
