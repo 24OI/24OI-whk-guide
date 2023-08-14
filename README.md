@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# 24OI
-=======
-# 文化课攻略收集站 For 24OI
+# 文化课攻略收集站 for 24OI
 
 A project launched by hanoist.
 
@@ -22,4 +19,3 @@ A project launched by hanoist.
 实在是非常方便呢（
 
 ---- Asta 2023.8.14
->>>>>>> 33da756989d6ff215409a79e55642ee5ed9e8540
