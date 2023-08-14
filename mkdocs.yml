@@ -31,4 +31,5 @@ nav:
         - 结束了？: '4.md'
         - 浅谈一点志愿选择: '4_.md'
     - 结尾的一点碎碎念: 'end.md'
+- 学习资料: 'file.md'
 theme: material
