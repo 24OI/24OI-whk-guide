@@ -129,11 +129,11 @@ def split_content_to_files(content, title, date, author, author_nickname, direct
         os.mkdir(author_dir)
     tokens = tokenize(content)
     ast = parse(tokens)
-    if __debug__:
-        print(ast)
     page_id, section_id = [0], [0]
     current_page = None
     generate_by_ast(ast, author_dir, title, date, author_nickname, page_id, section_id)
+    # TODO: 生成 nav
+    # 这里的返回值应该是包含单个用户 nav 信息的一个 dict?list?
     return 114514
     
 
@@ -162,7 +162,7 @@ def merge_with_base_nav(base_file, guide_section):
         # extract '经验分享' section
         guide_index = base_content['nav'].index({'经验分享': 'leave this empty'})
         if __debug__:
-            print(base_content['nav'][guide_index])
+            print(base_content)
         base_content['nav'][guide_index]['经验分享'] = guide_section
         if __debug__:
             print(base_content['nav'][guide_index])
