@@ -46,3 +46,11 @@ extra_javascript:
     - javascripts/mathjax.js
     - https://polyfill.io/v3/polyfill.min.js?features=es6
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+- 关于站点:
+    - 首页: 'index.md'
+    - 更新日志: 'log.md'
+    - 贡献: 'contributing.md'
+- 学习资料: 'file.md'
+- 寄语 : 'message.md'

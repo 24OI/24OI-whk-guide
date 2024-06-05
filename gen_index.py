@@ -35,7 +35,7 @@ def save_yaml(content, output_file):
 def main():
     base_file = 'index_base.yaml'
     output_file = 'mkdocs.yaml'
-    file_dir = 'docs/'
+    file_dir = 'docs/guide/'
     markdown_files = get_markdown_files(file_dir)
     nav_section = generate_nav_section(markdown_files, file_dir)
     merged_content = merge_with_base_nav(base_file, nav_section)
