@@ -10,16 +10,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
+
+      - name: Copy contribution guide
+        run: cp CONTRIBUTION.md docs/contributing.md
+
+      - name: Build index
+        run: |
+          pip install -r requirements.txt
+          python3 ./gen_index.py
+
+      - name: Generate cache ID
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+
+      - name: Install mkdocs-material
+        run: pip install mkdocs-material
+
+      - name: Generate site
+        run: mkdocs gh-deploy --force
