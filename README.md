@@ -12,7 +12,7 @@ Site: https://hanoist.github.io/24OI/.
 
 **Update**: 2024.6
 
-贡献以及访问站点请查看[CONTRIBUTION.md](./CONTRIBUTION.md), 查看内容也可以直接阅读 `docs` 下对应的 markdown 文档, 致谢中关于贡献的内容 **不作为参考**.
+贡献请查看[CONTRIBUTION.md](./CONTRIBUTION.md), 致谢中关于贡献的内容 **不作为参考**.
 
 特别鸣谢2023届24OIer，我的老队友望月 Asta 对建设本站点的关键性的技术支持，是他让这个站点成为可能，顺便拯救了因病而精神极差的我。sto Asta orz
 
