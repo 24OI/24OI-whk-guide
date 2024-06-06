@@ -73,10 +73,7 @@ def match_guide_info(content):
     return title, date, author, author_nickname
 
 def create_page(content, file_dir, title = "", date = "", author_nickname = ""):
-    if title != "":
-        # create mkdocs !!!note block at the beginning
-        content = f"!!! note\n    - 作者: {author_nickname}\n    - 日期: {date}\n\n" + content
-    # create file
+    content = f"!!! note\n    - 作者: {author_nickname}\n    - 日期: {date}\n\n" + content
     with open(file_dir, 'w', encoding='utf-8') as f:
         f.write(content)
 
@@ -84,31 +81,47 @@ def append_content_to_file(content, file_dir):
     with open(file_dir, 'a', encoding='utf-8') as f:
         f.write(content)
 
-def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list, section_id: list):
+def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list, section_id: list, is_section = False):
+    nav = []
+    section_title = None
+    if is_section:
+        # find first header
+        section_title = ast[0][1].strip()[2:]
+        while ast[0][0] != 'HEADER':
+            section_title = ast[1][1].strip()[2:]
+            ast.pop(0)
+        ast.pop(0)
+        if __debug__:
+            print(f"Section title: {section_title}")
+        
     for node in ast:
         if isinstance(node, dict):
-            section_id.append(section_id[-1] + 1)
+            section_id[-1] += 1
+            section_id.append(section_id[-1])
             page_id.append(0)
             if section_id[-1] != 0:
                 dir_with_section = directory + f's{section_id[-1]}/'
-                os.mkdir(dir_with_section)
+                if not os.path.exists(dir_with_section):
+                    os.mkdir(dir_with_section)
             else:
                 dir_with_section = directory
-            generate_by_ast(node['section'], dir_with_section, title, date, author_nickname, page_id, section_id)
+            subsection = generate_by_ast(node['section'], dir_with_section, title, date, author_nickname, page_id, section_id, True)
+            nav.append(subsection)
             section_id.pop()
             page_id.pop()
         else:
             kind, value = node
             if kind == 'HEADER':
-                # TODO: 匹配 section 标题, 有些时候 (在 {section 底下的时候)
-                # header 不是新建页面的标题, 而是 nav 一个层级的标题
                 page_id[-1] += 1
                 if not value.isspace():
                     create_page(value, directory + f'p{page_id[-1]}.md', title, date, author_nickname)
+                    nav.append({value.strip()[2:]: directory[5:] + f'p{page_id[-1]}.md'})
             elif kind == 'CONTENT':
                 if page_id[-1] != 0:
                     append_content_to_file(value, directory + f'p{page_id[-1]}.md')
-    # TODO: 生成 nav
+    if is_section:
+        return {section_title: nav}
+    return nav
             
 def split_content_to_files(content, title, date, author, author_nickname, directory):
     # the following code may be extremely ugly
@@ -129,22 +142,27 @@ def split_content_to_files(content, title, date, author, author_nickname, direct
         os.mkdir(author_dir)
     tokens = tokenize(content)
     ast = parse(tokens)
+    if __debug__:
+        print(f"AST: {ast}")
     page_id, section_id = [0], [0]
-    current_page = None
-    generate_by_ast(ast, author_dir, title, date, author_nickname, page_id, section_id)
-    # TODO: 生成 nav
-    # 这里的返回值应该是包含单个用户 nav 信息的一个 dict?list?
-    return 114514
+    return generate_by_ast(ast, author_dir, title, date, author_nickname, page_id, section_id)
     
 
 def generate_single_file_nav(directory, file):
+    """
+    每个文件: {'title by author_nickname': []}
+    每个页面 {'page title': '/....../p{page id}.md'}
+    每个 section {'section title': []}
+    """
     with open(directory + file, 'r', encoding='utf-8') as f:
         content = f.read()
         title, date, author, author_nickname = match_guide_info(content)
         if __debug__:
             print(title, date, author, author_nickname)
         content = content.split('---', 2)[2].strip()
-        return split_content_to_files(content, title, date, author, author_nickname, directory)
+        nav_content = split_content_to_files(content, title, date, author, author_nickname, directory)
+        file_nav = {f'{title} by {author_nickname}': nav_content}
+        return file_nav
         
 
 def generate_nav_section(files, directory):
@@ -152,6 +170,8 @@ def generate_nav_section(files, directory):
     nav = []
     for file in files:
         nav.append(generate_single_file_nav(directory, file))
+    if __debug__ :
+        print(nav)
     return nav
 
 def merge_with_base_nav(base_file, guide_section):
@@ -161,11 +181,7 @@ def merge_with_base_nav(base_file, guide_section):
         base_content = yaml.safe_load(f)
         # extract '经验分享' section
         guide_index = base_content['nav'].index({'经验分享': 'leave this empty'})
-        if __debug__:
-            print(base_content)
         base_content['nav'][guide_index]['经验分享'] = guide_section
-        if __debug__:
-            print(base_content['nav'][guide_index])
     
     return base_content
 
@@ -181,11 +197,11 @@ def main():
         output_file = 'mkdocs_temp.yaml'
     file_dir = 'docs/guide/'
     markdown_files = get_markdown_files(file_dir)
+    print("Found markdown files:", ', '.join(markdown_files))
     nav_section = generate_nav_section(markdown_files, file_dir)
     merged_content = merge_with_base_nav(base_file, nav_section)
     save_yaml(merged_content, output_file)
 
 if __name__ == '__main__':
-    # main()
-    # still in progress
+    main()
     print("Finished generating nav section in mkdocs.yaml")
