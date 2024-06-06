@@ -12,7 +12,7 @@ Site: https://hanoist.github.io/24OI/.
 
 **Update**: 2024.6
 
-贡献请查看[CONTRIBUTION.md](./CONTRIBUTION.md), 致谢中关于贡献的内容不再作为参考。
+贡献请查看[CONTRIBUTION.md](./CONTRIBUTION.md), 致谢中关于贡献的内容 **不作为参考**。
 
 特别鸣谢2023届24OIer，我的老队友望月 Asta 对建设本站点的关键性的技术支持，是他让这个站点成为可能，顺便拯救了因病而精神极差的我。sto Asta orz
 
@@ -22,10 +22,6 @@ Site: https://hanoist.github.io/24OI/.
 
 ---- Hanoist 2023.8.13
 
-大家好啊咱是不太会用 GitHub 的望月 Asta。
+`gen_index.py` 是低质量代码.
 
-添加了 workflow 之后，不需要本地 build 或者 gh-deploy，只需修改文件 & mkdocs.yml 然后 push 即可！
-
-实在是非常方便呢（
-
----- Asta 2023.8.14
+---- Asta 2024.6.6
