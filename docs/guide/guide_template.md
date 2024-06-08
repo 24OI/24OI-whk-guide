@@ -11,7 +11,7 @@ author_nickname: 无名氏
 
 `author_nickname` 会被作为作者名放在文章开头的 note box 内.
 
-我不知道 `title` 有啥用, 看着办吧.
+`title` 会被显示在左侧的目录树上.
 
 支持 Mathjax 渲染的 $\LaTeX$
 
