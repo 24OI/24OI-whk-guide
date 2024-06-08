@@ -1,31 +1,32 @@
 # Generate nav part of mkdocs.yaml
-# from markdown file titles in file/
+# from markdown file titles in docs/guide/
 import os
 import re
 import yaml
 import argparse
 
-# base: index_base.yaml (with everything except nav)
-# result: mkdocs.yaml 
-
 authorname_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_'
+
 
 def tokenize(text):
     token_specification = [
         ('SECTION_START', r'\{section\}'),
         ('SECTION_END', r'\{section end\}'),
         ('HEADER', r'(?<!#)# [^\r\n]*\r?\n'),
-        ('CONTENT', r'(?:[^#\{]+|(?:##+ [^\r\n]*\r?\n))+')
+        ('CONTENT',
+         r'(?:[^#\{\}]+|(?:##+ [^\r\n]*\r?\n)+|\{(?!section\}|section end\})[^}]+\})')
     ]
-    tok_regex = '|'.join(f'(?P<{pair[0]}>{pair[1]})' for pair in token_specification)
+    tok_regex = '|'.join(
+        f'(?P<{pair[0]}>{pair[1]})' for pair in token_specification)
     get_token = re.compile(tok_regex)
-    
+
     tokens = []
     for match in get_token.finditer(text):
         kind = match.lastgroup
         value = match.group()
         tokens.append((kind, value))
     return tokens
+
 
 def parse(tokens):
     stack = []
@@ -51,17 +52,19 @@ def parse(tokens):
                 current_section.append((kind, value))
             else:
                 ast.append((kind, value))
-    
+
     if stack:
         raise SyntaxError("Unmatched section start.")
-    
+
     return ast
+
 
 def get_markdown_files(directory):
     """Get a list of all markdown files in the specified directory."""
     if __debug__:
         return [f for f in os.listdir(directory) if f.endswith('.md')]
     return [f for f in os.listdir(directory) if f.endswith('.md') and f != 'guide_template.md']
+
 
 def match_guide_info(content):
     """Match the author name, date, and author nickname in the content."""
@@ -73,16 +76,20 @@ def match_guide_info(content):
         raise ValueError('Invalid author name')
     return title, date, author, author_nickname
 
-def create_page(content, file_dir, title = "", date = "", author_nickname = ""):
-    content = f"!!! note\n    - 作者: {author_nickname}\n    - 日期: {date}\n\n" + content
+
+def create_page(content, file_dir, title="", date="", author_nickname=""):
+    content = f"!!! note\n    - 作者: {\
+        author_nickname}\n    - 日期: {date}\n\n" + content
     with open(file_dir, 'w', encoding='utf-8') as f:
         f.write(content)
+
 
 def append_content_to_file(content, file_dir):
     with open(file_dir, 'a', encoding='utf-8') as f:
         f.write(content)
 
-def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list, section_id: list, is_section = False):
+
+def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list, section_id: list, is_section=False):
     nav = []
     section_title = None
     if is_section:
@@ -94,7 +101,7 @@ def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list,
         ast.pop(0)
         if __debug__:
             print(f"Section title: {section_title}")
-        
+
     for node in ast:
         if isinstance(node, dict):
             section_id[-1] += 1
@@ -106,7 +113,8 @@ def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list,
                     os.mkdir(dir_with_section)
             else:
                 dir_with_section = directory
-            subsection = generate_by_ast(node['section'], dir_with_section, title, date, author_nickname, page_id, section_id, True)
+            subsection = generate_by_ast(
+                node['section'], dir_with_section, title, date, author_nickname, page_id, section_id, True)
             nav.append(subsection)
             section_id.pop()
             page_id.pop()
@@ -115,25 +123,28 @@ def generate_by_ast(ast, directory, title, date, author_nickname, page_id: list,
             if kind == 'HEADER':
                 page_id[-1] += 1
                 if not value.isspace():
-                    create_page(value, directory + f'p{page_id[-1]}.md', title, date, author_nickname)
-                    nav.append({value.strip()[2:]: directory[5:] + f'p{page_id[-1]}.md'})
+                    create_page(
+                        value, directory + f'p{page_id[-1]}.md', title, date, author_nickname)
+                    nav.append(
+                        {value.strip()[2:]: directory[5:] + f'p{page_id[-1]}.md'})
             elif kind == 'CONTENT':
                 if page_id[-1] != 0:
-                    append_content_to_file(value, directory + f'p{page_id[-1]}.md')
+                    append_content_to_file(
+                        value, directory + f'p{page_id[-1]}.md')
     if is_section:
         return {section_title: nav}
     return nav
-            
+
+
 def split_content_to_files(content, title, date, author, author_nickname, directory):
     # the following code may be extremely ugly
     # because I haven't learned complier theory
     # A better way is to implement a parser then generate AST
-    
     """
     create dir docs/guide/authorname/
     create sub dir for {section} tag
     create a markdown file for every level 1 header
-    
+
     single page be like:  docs/guide/authoname/p{page id}.md
     section be like: docs/guide/authoname/s{section id}/p{page id}.md
     id starts from 1
@@ -147,49 +158,47 @@ def split_content_to_files(content, title, date, author, author_nickname, direct
         print(f"AST: {ast}")
     page_id, section_id = [0], [0]
     return generate_by_ast(ast, author_dir, title, date, author_nickname, page_id, section_id)
-    
+
 
 def generate_single_file_nav(directory, file):
-    """
-    每个文件: {'title by author_nickname': []}
-    每个页面 {'page title': '/....../p{page id}.md'}
-    每个 section {'section title': []}
-    """
     with open(directory + file, 'r', encoding='utf-8') as f:
         content = f.read()
         title, date, author, author_nickname = match_guide_info(content)
         if __debug__:
             print(title, date, author, author_nickname)
         content = content.split('---', 2)[2].strip()
-        nav_content = split_content_to_files(content, title, date, author, author_nickname, directory)
+        nav_content = split_content_to_files(
+            content, title, date, author, author_nickname, directory)
         file_nav = {f'{title} by {author_nickname}': nav_content}
         return file_nav
-        
+
 
 def generate_nav_section(files, directory):
     """Generate the nav section from markdown file titles."""
     nav = []
     for file in files:
         nav.append(generate_single_file_nav(directory, file))
-    if __debug__ :
+    if __debug__:
         print(nav)
     return nav
+
 
 def merge_with_base_nav(base_file, guide_section):
     """Merge the base YAML content with the generated nav section."""
     # dump file
     with open(base_file, 'r', encoding='utf-8') as f:
         base_content = yaml.safe_load(f)
-        # extract '经验分享' section
         guide_index = base_content['nav'].index({'经验分享': 'leave this empty'})
         base_content['nav'][guide_index]['经验分享'] = guide_section
-    
+
     return base_content
+
 
 def save_yaml(content, output_file):
     """Save the content to a YAML file."""
     with open(output_file, 'w', encoding='utf-8') as f:
         yaml.dump(content, f, default_flow_style=False, allow_unicode=True)
+
 
 def main(base_file: str, output_file: str, file_dir: str):
     markdown_files = get_markdown_files(file_dir)
@@ -198,16 +207,16 @@ def main(base_file: str, output_file: str, file_dir: str):
     merged_content = merge_with_base_nav(base_file, nav_section)
     save_yaml(merged_content, output_file)
 
+
 if __name__ == '__main__':
-    # parse arguments
-    # --base, -b: base yaml file
-    # --output, -o: output yaml file
-    # --dir, -d: markdown file directory
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('--base', '-b', help='Base YAML file', default='mkdocs_base.yaml')
-    arg_parser.add_argument('--output', '-o', help='Output YAML file', default='mkdocs.yaml')
-    arg_parser.add_argument('--dir', '-d', help='Markdown file directory', default='docs/guide/')
-    main(arg_parser.parse_args().base,\
-         arg_parser.parse_args().output,\
+    arg_parser.add_argument(
+        '--base', '-b', help='Base YAML file', default='mkdocs_base.yaml')
+    arg_parser.add_argument(
+        '--output', '-o', help='Output YAML file', default='mkdocs.yaml')
+    arg_parser.add_argument(
+        '--dir', '-d', help='Markdown file directory', default='docs/guide/')
+    main(arg_parser.parse_args().base,
+         arg_parser.parse_args().output,
          arg_parser.parse_args().dir)
     print("Finished generating nav section in mkdocs.yaml")
