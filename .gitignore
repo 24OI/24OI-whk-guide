@@ -1,6 +1,6 @@
 # local build files
 site/
 docs/contributing.md
-mkdocs_temp.yaml
+mkdocs.yaml
 docs/guide/*
 !docs/guide/*.*
