@@ -3,6 +3,7 @@
 import os
 import re
 import yaml
+import argparse
 
 # base: index_base.yaml (with everything except nav)
 # result: mkdocs.yaml 
@@ -190,12 +191,7 @@ def save_yaml(content, output_file):
     with open(output_file, 'w', encoding='utf-8') as f:
         yaml.dump(content, f, default_flow_style=False, allow_unicode=True)
 
-def main():
-    base_file = 'index_base.yaml'
-    output_file = 'mkdocs.yaml'
-    if __debug__:
-        output_file = 'mkdocs_temp.yaml'
-    file_dir = 'docs/guide/'
+def main(base_file: str, output_file: str, file_dir: str):
     markdown_files = get_markdown_files(file_dir)
     print("Found markdown files:", ', '.join(markdown_files))
     nav_section = generate_nav_section(markdown_files, file_dir)
@@ -203,5 +199,15 @@ def main():
     save_yaml(merged_content, output_file)
 
 if __name__ == '__main__':
-    main()
+    # parse arguments
+    # --base, -b: base yaml file
+    # --output, -o: output yaml file
+    # --dir, -d: markdown file directory
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('--base', '-b', help='Base YAML file', default='mkdocs_base.yaml')
+    arg_parser.add_argument('--output', '-o', help='Output YAML file', default='mkdocs.yaml')
+    arg_parser.add_argument('--dir', '-d', help='Markdown file directory', default='docs/guide/')
+    main(arg_parser.parse_args().base,\
+         arg_parser.parse_args().output,\
+         arg_parser.parse_args().dir)
     print("Finished generating nav section in mkdocs.yaml")
