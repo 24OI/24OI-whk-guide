@@ -26,6 +26,9 @@ jobs:
           pip install -r requirements.txt
           python3 -O ./gen_index.py
 
+      - name: Build file list
+        run: python3 -O ./gen_file_list.py
+      
       - name: Generate cache ID
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
 
