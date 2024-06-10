@@ -1,7 +1,7 @@
 site_name: 文化课攻略收集站 for 24OI
 
-repo_name: 'Hanoist/24OI'
-repo_url: 'https://github.com/Hanoist/24OI'
+repo_name: '24OI/24OI-whk-guide'
+repo_url: 'https://github.com/24OI/24OI-whk-guide'
 
 theme:
   name: material
