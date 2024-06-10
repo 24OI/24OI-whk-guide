@@ -216,7 +216,8 @@ if __name__ == '__main__':
         '--output', '-o', help='Output YAML file', default='mkdocs.yaml')
     arg_parser.add_argument(
         '--dir', '-d', help='Markdown file directory', default='docs/guide/')
+    print("Generating nav section...")
     main(arg_parser.parse_args().base,
          arg_parser.parse_args().output,
          arg_parser.parse_args().dir)
-    print("Finished generating nav section in mkdocs.yaml")
+    print(f"Generation complete. Output file: {arg_parser.parse_args().output}")
