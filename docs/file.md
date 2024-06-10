@@ -18,7 +18,7 @@
 
 ### 英语
 
-[2024届最后一课](https://github.com/Hanoist/24OI/blob/main/file/English/2024届最后一课.pptx)
+[2024届最后一课](https://github.com/Hanoist/24OI/blob/main/file/English/2024届最后一课.pdf)
 
 ### 生物
 
