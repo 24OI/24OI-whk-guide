@@ -58,7 +58,20 @@ author_nickname: 无名氏
 
 ## 添加文件
 
-文件放入 `docs/file` 目录下, 对应的学科的文件夹中, 在 `docs/file.md` 中添加链接. 
+文件放入 `docs/file` 目录下, 对应的学科的文件夹中.
+
+- `docs/file/Chinese`
+- `docs/file/Math`
+- `docs/file/English`
+- `docs/file/Physics`
+- `docs/file/Chemistry`
+- `docs/file/Biology`
+- `docs/file/History`
+- `docs/file/Geography`
+- `docs/file/Politics`
+- `docs/file/Others`
+
+若暂时没有对应的学科文件夹, 请自行创建, 名称应如上所示.
 
 ## 添加寄语
 
