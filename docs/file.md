@@ -13,3 +13,13 @@
 ### 数学
 
 [导数高分](https://github.com/Hanoist/24OI/blob/main/file/Math/导数高分.docx)
+
+[2024届最后一课](https://github.com/Hanoist/24OI/blob/main/file/Math/2024届最后一课.pptx)
+
+### 英语
+
+[2024届最后一课](https://github.com/Hanoist/24OI/blob/main/file/English/2024届最后一课.pptx)
+
+### 生物
+
+[2024届最后一课](https://github.com/Hanoist/24OI/blob/main/file/Biology/2024届最后一课.pptx)
