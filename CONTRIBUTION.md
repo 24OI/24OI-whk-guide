@@ -58,7 +58,7 @@ author_nickname: 无名氏
 
 ## 添加文件
 
-文件放入 `file` 目录下, 在 `docs/file.md` 中添加链接. 
+文件放入 `docs/file` 目录下, 对应的学科的文件夹中, 在 `docs/file.md` 中添加链接. 
 
 ## 添加寄语
 
