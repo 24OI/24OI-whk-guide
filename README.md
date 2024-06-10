@@ -2,7 +2,7 @@
 
 A project launched by hanoist.
 
-Site: whk-guide.24oi.team
+Site: [whk-guide.24oi.team](https://whk-guide.24oi.team)
 
 ## Contribution
 
