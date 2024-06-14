@@ -78,8 +78,9 @@ def match_guide_info(content):
 
 
 def create_page(content, file_dir, title="", date="", author_nickname=""):
-    content = f"!!! note\n    - 作者: {\
-        author_nickname}\n    - 日期: {date}\n\n" + content
+    newline = '\n'
+    content = f'''!!! note{newline}    - 作者: {
+        author_nickname}{newline}    - 日期: {date}{newline}{newline}''' + content
     with open(file_dir, 'w', encoding='utf-8') as f:
         f.write(content)
 
