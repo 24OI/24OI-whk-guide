@@ -62,8 +62,19 @@ def parse(tokens):
 def get_markdown_files(directory):
     """Get a list of all markdown files in the specified directory."""
     if __debug__:
-        return [f for f in os.listdir(directory) if f.endswith('.md')]
-    return [f for f in os.listdir(directory) if f.endswith('.md') and f != 'guide_template.md']
+        file_names =  [f for f in os.listdir(directory) if f.endswith('.md')]
+    else:
+        file_names = [f for f in os.listdir(directory) if f.endswith('.md') and f != 'guide_template.md']
+    # sort by time in discription
+    names_with_time = []
+    for file in file_names:
+        with open(directory + file, 'r', encoding='utf-8') as f:
+            content = f.read()
+            time = re.search(r'date: (.+)', content).group(1)
+            names_with_time.append((file, time))
+    names_with_time.sort(key=lambda x: x[1])
+    file_names = [name for name, _ in names_with_time]
+    return file_names
 
 
 def match_guide_info(content):
