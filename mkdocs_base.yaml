@@ -9,7 +9,6 @@ theme:
   features:
     - content.code.annotate
     - navigation.tabs
-    - navigation.expand
   palette:
     - scheme: default
     - accent: indego
