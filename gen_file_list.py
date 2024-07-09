@@ -31,14 +31,15 @@ def main(file_dir: str, output: str):
             for file in files:
                 file_name, _ = os.path.splitext(file)
                 f.write(
-                   f'[{file_name}](./file/{folder}/{file}){{:download="{file}"}}\n\n')
+                    f'[{file_name}](./file/{folder}/{file}){{:download="{file}"}}\n\n')
+
 
 if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument(
-        '--dir', '-d', help = 'File directory', default = 'docs/file/')
+        '--dir', '-d', help='File directory', default='docs/file/')
     arg_parser.add_argument(
-        '--output', '-o', help = 'Output file', default='docs/file.md')
+        '--output', '-o', help='Output file', default='docs/file.md')
     print("Generating docs from folders...")
     main(arg_parser.parse_args().dir, arg_parser.parse_args().output)
     print("Genetation complete.")

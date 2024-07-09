@@ -62,9 +62,10 @@ def parse(tokens):
 def get_markdown_files(directory):
     """Get a list of all markdown files in the specified directory."""
     if __debug__:
-        file_names =  [f for f in os.listdir(directory) if f.endswith('.md')]
+        file_names = [f for f in os.listdir(directory) if f.endswith('.md')]
     else:
-        file_names = [f for f in os.listdir(directory) if f.endswith('.md') and f != 'guide_template.md']
+        file_names = [f for f in os.listdir(directory) if f.endswith(
+            '.md') and f != 'guide_template.md']
     # sort by time in discription
     names_with_time = []
     for file in file_names:
@@ -232,4 +233,5 @@ if __name__ == '__main__':
     main(arg_parser.parse_args().base,
          arg_parser.parse_args().output,
          arg_parser.parse_args().dir)
-    print(f"Generation complete. Output file: {arg_parser.parse_args().output}")
+    print(f"Generation complete. Output file: {
+          arg_parser.parse_args().output}")
