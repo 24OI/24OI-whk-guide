@@ -4,15 +4,15 @@ A project launched by hanoist.
 
 Site: [whk-guide.24oi.team](https://whk-guide.24oi.team)
 
-## Contribution
+## Contributing
 
-如果你有任何想法或者资源想要分享, 欢迎提交 pull request 或者 issue, 参考 [contribution guide](./CONTRIBUTION.md).
+如果你有任何想法或者资源想要分享, 欢迎提交 pull request 或者 issue, 参考 [contribution guide](./CONTRIBUTING.md).
 
 ## Acknowledgement
 
 **Update**: 2024.6
 
-贡献请查看[CONTRIBUTION.md](./CONTRIBUTION.md), 致谢中关于贡献的内容 **不作为参考**.
+贡献请查看[CONTRIBUTING.md](./CONTRIBUTING.md), 致谢中关于贡献的内容 **不作为参考**.
 
 特别鸣谢2023届24OIer，我的老队友望月 Asta 对建设本站点的关键性的技术支持，是他让这个站点成为可能，顺便拯救了因病而精神极差的我。sto Asta orz
 

@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Copy contribution guide
-        run: cp CONTRIBUTION.md docs/contributing.md
+        run: cp CONTRIBUTING.md docs/contributing.md
 
       - name: Build index
         run: |

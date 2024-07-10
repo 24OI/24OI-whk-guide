@@ -2,7 +2,7 @@
 
 ## 本地预览
 
-`python -O ./gen_index.py` 生成索引文件 `mkdocs.yml`, 然后使用 `mkdocs serve` 预览.
+`python -O ./gen_index.py` 生成索引文件 `mkdocs.yml`, 然后使用 `mkdocs serve` 预览.\
 
 ## Commit Message
 
