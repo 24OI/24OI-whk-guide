@@ -51,6 +51,7 @@ nav:
     - 首页: 'index.md'
     - 更新日志: 'log.md'
     - 贡献: 'contributing.md'
+    - 从这个站点是哪里来的到你应该干什么: 'about-more.md'
 - 学习资料: 'file.md'
 - 经验分享: 'leave this empty'
 - 寄语 : 'message.md'
