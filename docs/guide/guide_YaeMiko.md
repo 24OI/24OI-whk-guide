@@ -4,7 +4,7 @@ date: 2024-06-06 19:32:30
 author: YaeMiko
 author_nickname: YaeMik0
 ---
-
+{}
 # 前言
 
 > 鉴于我只是个没能留下名字的菜鸡，以下内容完全可以当作个人口嗨——已经死去的2023届老东西Fighter_sky
@@ -28,7 +28,9 @@ author_nickname: YaeMik0
 {section end}
 
 {section}
-# 壹：在开始之前
+# 壹：欢迎回来
+
+# 口嗨
 
 > 上面全是作者在口嗨发病，下面才是正文
 
@@ -56,6 +58,8 @@ author_nickname: YaeMik0
 
 {section}
 # 贰：碑文
+
+# 简介
 
 > 下面是一些关于具体学科的分析
 
@@ -106,6 +110,8 @@ author_nickname: YaeMik0
 
 {section}
 # 叁：六月，直面天命   
+
+# 转折点
 
 是的，你们在明年六月就会迎来高考，就像所有人说的一样，高考是人生重要的转折点，但是不是你人生的全部，高考失利并不代表你的人生就此结束了，所以请摆正心态，平和迎接高考
 
