@@ -4,7 +4,7 @@ date: 2024-06-06 19:32:30
 author: YaeMiko
 author_nickname: YaeMik0
 ---
-{}
+
 # 前言
 
 > 鉴于我只是个没能留下名字的菜鸡，以下内容完全可以当作个人口嗨——已经死去的2023届老东西Fighter_sky
