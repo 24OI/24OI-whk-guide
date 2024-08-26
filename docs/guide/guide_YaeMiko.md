@@ -11,6 +11,7 @@ author_nickname: YaeMik0
 
 {section}
 # 序：在结束之后
+# 序：在结束之后
 
 ## 那么，迷途的旅人啊……
 
@@ -28,6 +29,7 @@ author_nickname: YaeMik0
 {section end}
 
 {section}
+# 壹：在开始之前
 # 壹：在开始之前
 
 > 上面全是作者在口嗨发病，下面才是正文
@@ -55,6 +57,7 @@ author_nickname: YaeMik0
 {section end}
 
 {section}
+# 贰：碑文
 # 贰：碑文
 
 > 下面是一些关于具体学科的分析
@@ -106,6 +109,7 @@ author_nickname: YaeMik0
 
 {section}
 # 叁：六月，直面天命  
+# 叁：六月，直面天命  
 
 是的，你们在明年六月就会迎来高考，就像所有人说的一样，高考是人生重要的转折点，但是不是你人生的全部，高考失利并不代表你的人生就此结束了，所以请摆正心态，平和迎接高考
 
@@ -125,6 +129,7 @@ author_nickname: YaeMik0
 {section end}
 
 {section}
+# 肆：在开始之前
 # 肆：在开始之前
 
 ## 高考结束
